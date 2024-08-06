@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - Easy Crypto</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="sticky-header">
+      <div class="container">
+        <a href="index.html"
+          ><img src="images/logo.png" alt="Logo Easy Crypto" class="logo"
+        /></a>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html"><i class="fas fa-home"></i> Accueil</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <h1>Politique de confidentialité</h1>
+
+    <footer>
+      <div class="container">
+        <img src="images/logo.png" alt="Logo Easy Crypto" class="logo-footer" />
+        <nav>
+          <ul>
+            <li><a href="#cookies">Cookies</a></li>
+            <li><a href="cgv.html">CGV</a></li>
+            <li>
+              <a href="politique-de-confidentialite.html"
+                >Politique de confidentialité</a
+              >
+            </li>
+            <li><a href="#legal-notice">Mentions légales</a></li>
+            <li><a href="#security">Sécurité</a></li>
+          </ul>
+        </nav>
+        <div class="footer-text">
+          <p>Copyright © 2017-2024 Easy Crypto - Tous droits réservés.</p>
+          <p>
+            © Easycrypto. Les informations contenues sur Easycrypto sont à
+            vocation pédagogique et fournies à titre d'information uniquement.
+            Elles ne doivent pas être considérées comme une invitation ou un
+            encouragement à acheter ou vendre des cryptomonnaies spécifiques.
+            Tout commentaire relève de l'expérience personnelle d'Easycrypto et
+            ne doit pas être considéré comme une recommandation personnalisée.
+          </p>
+          <p>
+            Les informations fournies par Easycrypto ne doivent pas être
+            l'unique source pour prendre une décision d'investissement. Veillez
+            à contacter un conseiller financier ou un professionnel de la
+            finance avant de prendre toute décision d'investissement. Easycrypto
+            n'est en aucun cas responsable de vos pertes. L’investisseur est
+            seul responsable de l’utilisation de l’information fournie, sans
+            recours contre Easycrypto, qui n’est pas responsable en cas
+            d’erreur, d'omission, d’investissement inopportun ou d’évolution du
+            marché défavorable aux opérations réalisées.
+          </p>
+          <p>
+            Le placement en cryptomonnaies est risqué. Vous pouvez subir des
+            pertes. Les performances passées ne préjugent pas des performances
+            futures, elles ne sont pas constantes dans le temps et ne
+            constituent en aucun cas une garantie future de performance ou de
+            capital. Les références à des classements et récompenses passés ne
+            préjugent pas des classements ou des récompenses à venir.
+          </p>
+          <p>
+            Les outils et les informations fournies par Easycrypto ne sont pas
+            des conseils juridiques, fiscaux ou en investissement. Les
+            informations dispensées sont de nature éducative et générale et ne
+            sont pas des conseils en investissement, au sens des articles L.
+            321-1 et D. 321-1 du Code Monétaire et Financier.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const faqItems = document.querySelectorAll(".faq-item h3");
+        faqItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            const parent = item.parentElement;
+            parent.classList.toggle("active");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

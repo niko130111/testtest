@@ -1,0 +1,1629 @@
+/* Variables globales */
+:root {
+    --primary-color: #17273d; /* Bleu Foncé */
+    --secondary-color: #00BCD4; /* Cyan */
+    --accent-color: #9985ed; /* Bleu Clair */
+    --light-color: #F5F5F5; /* Gris Clair */
+    --dark-color: #1B3B5F; /* Bleu Clair */
+    --text-color: #333333; /* Gris Foncé */
+    --warm-neutral: #FFD700; /* Beige Or */
+    --highlight-color: #F2e3d6; /* Beige */
+    --font-titles: 'FormaDJbanner', sans-serif;
+    --font-subtitles: 'FormaDJBanner', sans-serif;
+    --font-body: 'Helvetica', sans-serif;
+    --default-font-size: 16px;
+    --large-font-size: 2em; /* Exemple de taille de police grande */
+    --medium-font-size: 1.5em; /* Exemple de taille de police moyenne */
+    --body-font-size: 1em; /* Taille de police pour le texte courant */
+    --body-line-height: 1.6; /* Hauteur de ligne pour le texte courant */
+    --body-font-color: var(--text-color); /* Couleur du texte courant */
+}
+
+/* Styles généraux */
+body {
+    font-family: var(--font-body); /* Utilise la police Roboto pour le corps du texte */
+    color: var(--body-font-color); /* Utilise la couleur définie pour le texte */
+    background-color: var(--light-color); /* Utilise une couleur de fond claire */
+    margin: 0;
+    padding: 0;
+    font-size: var(--body-font-size); /* Taille de police par défaut */
+    line-height: var(--body-line-height); /* Hauteur de ligne par défaut */
+}
+
+@media screen and (max-width: 768px) {
+/* Fix the overflow issues */
+    .container{
+        padding: 0 !important;
+        width: 90%;
+    }
+
+    body, html {
+        overflow-x: hidden;
+      }
+    }
+
+/* Styles pour h1, h2, h3 */
+h1, h2, h3 {
+    font-family: var(--font-titles); /* Utilise la police Lato pour les titres */
+    color: var(--primary-color); /* Utilise la couleur primaire pour les titres */
+    margin-bottom: 1em; /* Espace en dessous des titres */
+    text-align: center; /* Centre les titres */
+}
+
+h1 {
+    font-size: 3.4em;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2.8em;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Styles pour h4, h5, h6 */
+h4, h5, h6 {
+    font-family: var(--font-body); /* Utilise la police Roboto */
+    margin-bottom: 1em; /* Espace en dessous des sous-titres */
+}
+
+h4 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color); /* Couleur primaire pour les sous-titres */
+}
+
+h5 {
+    font-size: 1em;
+    font-weight: normal;
+    color: var(--text-color); /* Couleur de texte pour les sous-titres */
+}
+
+p, li, a {
+    font-family: var(--font-body); /* Utilise la police Roboto */
+    font-size: var(--body-font-size); /* Taille de police par défaut */
+}
+
+p {
+    color: var(--body-font-color); /* Couleur de texte */
+    line-height: var(--body-line-height); /* Hauteur de ligne */
+    margin-bottom: 1em; /* Espace en dessous des paragraphes */
+}
+
+li {
+    font-size: 1em;
+    color: #FFFFFF;
+    list-style: none; /* Supprime les puces des listes */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color); /* Couleur des liens */
+    transition: color 0.3s; /* Transition de la couleur des liens */
+}
+
+a:hover {
+    color: var(--secondary-color); /* Couleur des liens au survol */
+}
+
+/* Conteneur centralisé pour toutes les sections */
+.container {
+    max-width: 1500px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 0 40px; /* Padding pour les marges internes */
+    text-align: center; /* Centre le texte */
+}
+
+/* Styles pour les sections */
+section {
+    padding: 40px 0; /* Padding vertical pour les sections */
+}
+header {
+    background-color: var(--primary-color);
+    padding: 0.5em 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    height: 100px;
+    transition: transform 0.3s;
+}
+
+header .logo:hover {
+    transform: scale(1.1);
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    gap: 1px;
+}
+
+header nav ul li {
+    margin: 0 0.7em;
+}
+
+header nav ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: normal;
+    font-size: 1em;
+    color: var(--light-color);
+    transition: color 0.3s;
+}
+
+header nav ul li a i {
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+header nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.menu-toggle {
+    display: none;
+    position: absolute;
+    right: 40px;
+    color: #FFF;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: -5%;
+        background-color: var(--primary-color);
+        z-index: 999;
+        transition: transform 0.8s ease, opacity 0.8s ease;
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    .nav-list li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .nav-list li a {
+        margin: 0;
+        margin-right: 0;
+        text-align: right;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-list.active {
+
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* cookies */
+
+#cookie-banner {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+        bottom: 0;
+        z-index: 10;
+        width: 100%;
+        background-color: #f4f4f4;
+        padding: 10px 0;
+        text-align: center;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#cookie-banner a {
+    color: #007bff; text-decoration: none
+}
+
+#cookie-banner #accept-cookies {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Bannière */
+.banner {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 50%, var(--secondary-color) 100%); /* Dégradé de fond */
+    color: white; /* Couleur de texte */
+    position: relative; /* Position relative pour le conteneur */
+    overflow: hidden; /* Cache le contenu débordant */
+    height: 80vh; /* Hauteur de la bannière */
+    display: flex; /* Utilise Flexbox pour l'alignement interne */
+    align-items: center; /* Centre verticalement les éléments */
+    justify-content: center; /* Centre horizontalement les éléments */
+    padding: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.banner-container {
+    width: 90%; /* Largeur de 90% */
+    max-width: 1400px; /* Largeur maximale */
+    margin: 0 auto; /* Centre horizontalement le conteneur */
+    display: flex; /* Utilise Flexbox pour l'alignement interne */
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+}
+
+.banner::before {
+    content: ''; /* Contenu vide */
+    position: absolute; /* Position absolue */
+    top: 0; /* Position en haut */
+    left: 0; /* Position à gauche */
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hérite du fond */
+    opacity: 1;
+    z-index: -1; /* Position derrière le contenu */
+    filter: none; /* Pas de filtre */
+}
+
+.banner-content {
+    flex: 1; /* Prend tout l'espace disponible */
+    text-align: left; /* Aligne le texte à gauche */
+    animation: fadeInLeft 1s ease-in-out; /* Animation d'apparition */
+    padding-right: 2em; /* Réduit le padding à droite */
+    max-width: 45%; /* Réduit la largeur maximale pour aligner le texte avec le logo */
+    transform: translateY(-60px); /* Déplace verticalement le contenu */
+    margin-left: 0%; /* Ajoute une marge à gauche pour aligner avec le logo */
+}
+
+.banner h1 {
+    margin-bottom: 0.5em; /* Espace en dessous du titre */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre du texte */
+    color: #FFFFFF; /* Couleur de texte */
+    animation: fadeInDown 1s ease-in-out; /* Animation d'apparition */
+    line-height: 1.2em; /* Hauteur de ligne */
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+.banner p {
+    font-size: 1.2em; /* Taille de police */
+    margin-bottom: 1.5em; /* Espace en dessous du paragraphe */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Ombre du texte */
+    color: #FFFFFF; /* Couleur de texte */
+    animation: fadeInDown 1.2s ease-in-out; /* Animation d'apparition */
+    line-height: 1.2em; /* Hauteur de ligne */
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%); /* Dégradé de fond */
+    color: white; /* Couleur de texte */
+    padding: 1em 2em; /* Padding interne */
+    border-radius: 30px; /* Bords arrondis */
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transitions pour les animations */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+    border: 2px solid var(--warm-neutral); /* Bordure */
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%); /* Dégradé de fond au survol */
+    color: #FFFFFF; /* Couleur de texte */
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre au survol */
+    border-color: var(--warm-neutral); /* Couleur de bordure */
+}
+
+.banner-image {
+    flex: 1; /* Prend tout l'espace disponible */
+    text-align: right; /* Aligne le texte à droite */
+    animation: fadeInRight 1s ease-in-out; /* Animation d'apparition */
+    max-width: 50%; /* Augmente la largeur maximale de l'image */
+    height: auto;
+    margin-right: 2%; /* Réduit l'espace à droite pour centrer */
+ 
+}
+
+.banner-image img {
+    width: 100%; /* Largeur de l'image ajustée */
+    height: auto;
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+    transition: transform 0.3s; /* Transition pour l'animation */
+}
+
+.banner-image img:hover {
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+}
+
+@media screen and (max-width: 768px) {
+    .banner-container {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center elements horizontally */
+        text-align: center; /* Center text for all elements */
+    }
+
+    .banner-content {
+        width: 100%; /* Full width for better alignment */
+        max-width: 90%;
+        padding-right: 0; /* Remove right padding */
+        transform: translateY(0); /* Remove vertical shift */
+        margin-left: 0; /* Remove left margin */
+        text-align: center; /* Center text for content */
+        margin-bottom: 20px; /* Space between content and image */
+    }
+
+    .banner-content h1, 
+    .banner-content p {
+        text-align: center; /* Center-align text */
+    }
+
+    .banner h1 {
+        font-size: 2em;
+    }
+
+    .cta-button {
+        display: inline-block;
+        margin-top: 20px; /* Add margin above the button */
+    }
+
+    .banner-image {
+        width: 100%; /* Full width for the image */
+        max-width: 90%;
+        text-align: center; /* Center-align image */
+        margin: 0 auto; /* Center image */
+    }
+
+    .banner-image img {
+        width: 100%; /* Image takes full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+
+
+
+/* Styles pour la section Performance */
+.performance-banner {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 50%, var(--secondary-color) 100%); /* Dégradé de fond */
+    color: white; /* Couleur de texte */
+    padding: 1em 0; /* Padding vertical */
+    text-align: center; /* Centre le texte */
+    margin-bottom: 1em; /* Espace en dessous de la section */
+}
+
+.performance-banner .container {
+    display: flex; /* Utilise Flexbox pour l'alignement interne */
+    justify-content: center; /* Centre les éléments horizontalement */
+    gap: 2em; /* Espace entre les éléments */
+    flex-wrap: wrap; /* Permet le retour à la ligne des éléments */
+}
+
+.performance-banner-content {
+    display: flex; /* Utilise Flexbox pour l'alignement interne */
+    align-items: center; /* Centre verticalement les éléments */
+    justify-content: center; /* Centre horizontalement les éléments */
+    gap: 2em; /* Espace entre les éléments */
+}
+
+.metric {
+    background: rgba(255, 255, 255, 0.1); /* Fond semi-transparent */
+    padding: 0.5em 1em; /* Padding interne */
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+    transition: transform 0.3s; /* Transition pour l'animation */
+    display: flex; /* Utilise Flexbox pour l'alignement interne */
+    align-items: center; /* Centre verticalement les éléments */
+    color: white; /* Couleur de texte */
+}
+
+.metric:hover {
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+}
+
+.metric .year,
+.metric .value {
+    font-size: 1.2em; /* Taille de police */
+    margin-left: 0.5em; /* Espace à gauche du texte */
+}
+
+@media screen and (max-width: 768px) {
+    .performance-banner .container {
+        display: flex;
+        justify-content: center;
+        gap: 2em;
+        flex-wrap: wrap;
+      }
+      
+      .performance-banner-content {
+        display: grid; /* Use CSS Grid for layout */
+        grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+        grid-template-rows: auto; /* Allow rows to auto-size based on content */
+        gap: 2em; /* Space between grid items */
+      }
+
+    .metric {
+        width: 80%; /* Full width for metrics on smaller screens */
+        margin-bottom: 1em; /* Add space between stacked items */
+    }
+
+    .metric .year,
+    .metric .value {
+        font-size: 1.1em; /* Adjust font size for better readability */
+        margin-left: 0; /* Remove left margin to center text */
+    }
+}
+
+
+/* Section Notre Solution */
+#notre-solution {
+    background-color: var(--light-color); /* Couleur de fond */
+    padding: 40px 0; /* Padding vertical */
+}
+
+#notre-solution .container {
+    max-width: 1200px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 0 40px; /* Padding pour les marges internes */
+}
+
+#notre-solution .introduction {
+    text-align: center; /* Centre le texte */
+}
+
+#notre-solution .introduction-text {
+    font-size: 1.2em; /* Taille de la police */
+    margin-bottom: 20px; /* Espace en dessous du texte */
+    color: var(--text-color); /* Couleur du texte */
+}
+
+#notre-solution .cards {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: space-around; /* Espace autour des cartes */
+    align-items: stretch; /* Étire les cartes verticalement */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+    gap: 30px; /* Espace entre les cartes */
+}
+
+#notre-solution .card {
+    background-color: #FFFFFF; /* Couleur de fond des cartes */
+    border-radius: 15px; /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre des cartes */
+    padding: 1.5em; /* Padding interne */
+    flex: 1 1 calc(25% - 30px); /* Flexibilité et taille des cartes */
+    max-width: calc(25% - 30px); /* Largeur maximale des cartes */
+    text-align: center; /* Centre le texte */
+    border: 2px solid transparent; /* Bordure transparente */
+    transition: border 0.3s ease-in-out, transform 0.3s, box-shadow 0.3s; /* Transitions pour les animations */
+    display: flex; /* Utilise Flexbox pour l'alignement interne */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    justify-content: center; /* Centre verticalement les éléments */
+    align-items: center; /* Centre horizontalement les éléments */
+}
+
+#notre-solution .card i {
+    font-size: 40px; /* Taille des icônes */
+    margin-bottom: 0.5em; /* Espace en dessous de l'icône */
+    color: var(--secondary-color); /* Utilisation de la couleur cyan */
+}
+
+#notre-solution .card h4 {
+    font-size: 1.2em; /* Taille de la police */
+    margin-bottom: 0.5em; /* Espace en dessous du titre */
+    color: var(--primary-color); /* Couleur primaire */
+}
+
+#notre-solution .card p {
+    font-size: 0.9em; /* Taille de la police */
+    color: var(--text-color); /* Couleur du texte */
+    line-height: 1.4; /* Hauteur de ligne */
+    margin: 0; /* Supprime les marges */
+}
+
+#notre-solution .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre sur le survol */
+    transform: translateY(-5px); /* Déplacement vers le haut */
+    border: 2px solid; /* Affiche la bordure */
+    border-image-slice: 1; /* Définit la bordure en image */
+    border-image-source: linear-gradient(135deg, var(--secondary-color), var(--accent-color)); /* Dégradé du cyan au violet */
+}
+
+/* Réduire l'espace entre les cartes Support et analyse et Sécurité */
+#notre-solution .paired-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px; /* Réduction de l'espace entre les cartes */
+}
+
+@media screen and (max-width: 768px) {
+    #notre-solution .cards {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #notre-solution .card {
+        width: 80%;
+        max-width: 80%;
+    }
+
+    #notre-solution .paired-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+
+/* Section Maitrisez les bases */
+.training {
+    background-color: var(--light-color); /* Couleur de fond */
+    padding: 40px 0; /* Padding vertical */
+}
+
+.training .container {
+    max-width: 1200px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 0 40px; /* Padding pour les marges internes */
+}
+
+.training .introduction {
+    text-align: center; /* Centre le texte */
+}
+
+.training .introduction-text {
+    font-size: 1.2em; /* Taille de la police */
+    margin-bottom: 20px; /* Espace en dessous du texte */
+    color: var(--text-color); /* Couleur du texte */
+}
+
+.training .columns {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: space-between; /* Espace entre les colonnes */
+    align-items: stretch; /* Étire les colonnes verticalement */
+    flex-wrap: nowrap; /* Empêche le retour à la ligne */
+    gap: 20px; /* Espace entre les colonnes */
+}
+
+.training .column {
+    background-color: #FFFFFF; /* Couleur de fond des colonnes */
+    border-radius: 15px; /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre des colonnes */
+    padding: 2em; /* Padding interne */
+    flex: 1; /* Flexibilité et taille des colonnes */
+    text-align: center; /* Centre le texte */
+    border: 2px solid transparent; /* Bordure transparente */
+    transition: border 0.3s ease-in-out, transform 0.3s, box-shadow 0.3s; /* Transitions pour les animations */
+    display: flex; /* Utilise Flexbox pour l'alignement interne */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    justify-content: center; /* Centre verticalement les éléments */
+    align-items: center; /* Centre horizontalement les éléments */
+}
+
+.training .column img {
+    max-width: 50px; /* Largeur maximale de l'image */
+    margin-bottom: 1em; /* Espace en dessous de l'image */
+}
+
+.training .column h4 {
+    font-size: 1.2em; /* Taille de la police */
+    margin-bottom: 0.5em; /* Espace en dessous du titre */
+    color: var(--primary-color); /* Couleur primaire */
+    font-family: var(--font-body); /* Utilise la police pour les corps de texte */
+    font-weight: normal;
+}
+
+.training .column p {
+    font-size: 1em; /* Taille de la police */
+    color: var(--text-color); /* Couleur du texte */
+    font-family: var(--font-body); /* Utilise la police pour les corps de texte */
+    line-height: 1.4; /* Hauteur de ligne */
+    margin: 0; /* Supprime les marges */
+}
+
+.training .column:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre sur le survol */
+    transform: translateY(-15px) !important; /* Déplacement vers le haut */
+    border: 2px solid; /* Affiche la bordure */
+    border-image-slice: 1; /* Définit la bordure en image */
+    border-image-source: linear-gradient(135deg, var(--secondary-color), var(--accent-color)); /* Dégradé du cyan au violet */
+}
+
+@media screen and (max-width: 768px) {
+    .training .columns{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .training .column{
+        width: 80%;
+    }
+}
+
+/* Section Notre Stratégie */
+#notre-strategie {
+    background-color: var(--light-color); /* Couleur de fond */
+    padding: 40px 0; /* Padding vertical */
+}
+
+#notre-strategie .container {
+    max-width: 1200px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 0 40px; /* Padding pour les marges internes */
+}
+
+#notre-strategie .introduction {
+    text-align: center; /* Centre le texte */
+}
+
+#notre-strategie .introduction-text {
+    font-size: 1.2em; /* Taille de la police */
+    margin-bottom: 20px; /* Espace en dessous du texte */
+    color: var(--text-color); /* Couleur du texte */
+}
+
+#notre-strategie .strategy-content {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    flex-wrap: wrap; /* Permet le retour à la ligne des éléments */
+}
+
+#notre-strategie .strategy-image {
+    flex: 1; /* Prend tout l'espace disponible */
+    text-align: center; /* Centre l'image */
+    padding: 20px; /* Padding interne */
+}
+
+#notre-strategie .strategy-image img {
+    max-width: 100%; /* Largeur maximale de l'image */
+    height: auto; /* Hauteur automatique */
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+#notre-strategie .strategy-text {
+    flex: 1; /* Prend tout l'espace disponible */
+    text-align: left; /* Texte aligné à gauche */
+    padding: 20px; /* Padding interne */
+}
+
+#notre-strategie .feature-box {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    align-items: flex-start; /* Aligne les éléments au début en vertical */
+    margin-bottom: 20px; /* Espace entre chaque fonctionnalité */
+}
+
+#notre-strategie .feature-box i {
+    font-size: 40px; /* Taille des icônes */
+    margin-right: 10px; /* Espace à droite de l'icône */
+    color: var(--secondary-color); /* Utilisation de la couleur cyan */
+}
+
+
+
+
+#notre-strategie .feature-text h4 {
+    font-size: 1.5em; /* Taille de la police du titre */
+    margin: 0 0 5px 0; /* Espace en dessous du titre */
+    color: var(--primary-color); /* Couleur primaire */
+}
+
+#notre-strategie .feature-text p {
+    font-size: 1em; /* Taille de la police du texte */
+    color: var(--text-color); /* Couleur du texte */
+    margin: 0; /* Supprime les marges */
+    line-height: 1.4; /* Hauteur de ligne */
+}
+
+@media screen and (max-width: 768px) {
+    #notre-strategie .strategy-content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+/* Section Débutez Facilement */
+#debuter-facilement {
+    background-color: var(--light-color); /* Couleur de fond */
+    padding: 40px 0; /* Padding vertical */
+}
+
+#debuter-facilement .container {
+    max-width: 1200px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 0 40px; /* Padding pour les marges internes */
+}
+
+#debuter-facilement .introduction {
+    text-align: center; /* Centre le texte */
+}
+
+#debuter-facilement .introduction-text {
+    font-size: 1.2em; /* Taille de la police */
+    margin-bottom: 20px; /* Espace en dessous du texte */
+    color: var(--text-color); /* Couleur du texte */
+}
+
+#debuter-facilement .timeline-horizontal {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: flex-start; /* Aligne les éléments en haut */
+    flex-wrap: nowrap; /* Empêche le retour à la ligne */
+    gap: 20px; /* Espace entre les éléments */
+    margin-top: 40px; /* Espace en haut */
+    position: relative; /* Nécessaire pour la ligne de la timeline */
+}
+
+#debuter-facilement .timeline-horizontal::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Épaisseur de la ligne de la timeline */
+    background-color: var(--secondary-color); /* Couleur de la ligne de la timeline */
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+#debuter-facilement .timeline-item {
+    background-color: #FFFFFF; /* Couleur de fond */
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+    padding: 20px; /* Padding interne */
+    width: 23%; /* Largeur des éléments */
+    text-align: center; /* Centre le texte */
+    position: relative; /* Nécessaire pour les icônes */
+    z-index: 2; /* Pour placer les icônes au-dessus de la ligne */
+    min-height: 200px; /* Hauteur minimale pour uniformiser la taille */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0; /* Initialement caché */
+    transform: translateY(20px); /* Position de départ */
+    transition: opacity 1s, transform 1s; /* Transition plus lente */
+}
+
+#debuter-facilement .timeline-item.appear {
+    opacity: 1; /* Rendre visible */
+    transform: translateY(0); /* Position finale */
+}
+
+#debuter-facilement .timeline-icon {
+    width: 60px; /* Largeur des icônes */
+    height: 60px; /* Hauteur des icônes */
+    background-color: var(--secondary-color); /* Couleur de fond des icônes */
+    border-radius: 50%; /* Forme ronde */
+    display: flex; /* Utilise Flexbox pour centrer les icônes */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+    position: absolute;
+    top: -30px; /* Positionne les icônes en haut */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3; /* Place les icônes au-dessus des éléments */
+    color: white; /* Couleur du texte des icônes */
+    font-size: 24px; /* Taille de la police des icônes */
+    font-weight: bold; /* Poids de la police des icônes */
+    border: 3px solid var(--accent-color); /* Bordure bleu clair */
+}
+
+#debuter-facilement .icon-number {
+    font-size: 24px; /* Taille des numéros */
+    font-weight: bold; /* Poids de la police des numéros */
+    color: white; /* Couleur des numéros */
+}
+
+#debuter-facilement .timeline-content h4 {
+    font-size: 1.2em; /* Taille de la police */
+    margin-bottom: 10px; /* Espace en dessous du titre */
+    color: var(--primary-color); /* Couleur primaire */
+}
+
+#debuter-facilement .timeline-content p {
+    font-size: 1em; /* Taille de la police */
+    color: var(--text-color); /* Couleur du texte */
+    line-height: 1.4; /* Hauteur de ligne */
+    margin: 0; /* Supprime les marges */
+    text-align: center; /* Centre le texte */
+}
+
+@media screen and (max-width: 768px) {
+    #debuter-facilement .timeline-horizontal {
+        flex-direction: column; /* Direction en colonne */
+        justify-content: center;
+        align-items: center;
+    }
+    #debuter-facilement .timeline-item {
+        width: 80%; /* Largeur complète */
+        margin-bottom: 20px; /* Espace en dessous des éléments */
+    }
+    #debuter-facilement .timeline-horizontal::before {
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        height: 90%;
+        width: 4px; /* Épaisseur de la ligne de la timeline pour petits écrans */
+        transform: translateX(-50%);
+    }
+    #debuter-facilement .timeline-icon {
+        top: auto;
+        top: -50px;
+        left: 50%;
+        transform: translate(-50%, 50%);
+    }
+}
+
+ /* support-analyse */
+ @media screen and (max-width: 768px) {
+    #support-analyse .support-analyse-content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* section secutite-totale */
+
+#securite-totale .feature-box .feature-icon {
+    min-width: 10%;
+ }
+
+ @media screen and (max-width: 768px) {
+    #securite-totale .securite-totale-content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #securite-totale .feature-box .feature-icon {
+        min-width: 13%;
+     }
+}
+
+
+
+
+/* Section Info */
+.presentation {
+    background-color: var(--light-color); /* Couleur de fond */
+    padding: 40px 0; /* Padding vertical */
+}
+
+.presentation .container {
+    max-width: 1200px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 0 40px; /* Padding pour les marges internes */
+}
+
+.presentation .introduction {
+    text-align: center; /* Centre le texte */
+}
+
+.presentation .introduction-text {
+    font-size: 1.2em; /* Taille de la police */
+    margin-bottom: 20px; /* Espace en dessous du texte */
+    color: var(--text-color); /* Couleur du texte */
+}
+
+.presentation .support-analyse-content, .presentation .securite-totale-content {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    flex-wrap: wrap; /* Permet le retour à la ligne des éléments */
+}
+
+.presentation .support-analyse-image, .presentation .securite-totale-image {
+    flex: 1; /* Prend tout l'espace disponible */
+    text-align: center; /* Centre l'image */
+    padding: 20px; /* Padding interne */
+}
+
+.presentation .support-analyse-image img, .presentation .securite-totale-image img {
+    max-width: 100%; /* Largeur maximale de l'image */
+    height: auto; /* Hauteur automatique */
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+.presentation .support-analyse-text, .presentation .securite-totale-text {
+    flex: 1; /* Prend tout l'espace disponible */
+    text-align: left; /* Texte aligné à gauche */
+    padding: 20px; /* Padding interne */
+}
+
+.presentation .feature-box {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    align-items: flex-start; /* Aligne les éléments au début en vertical */
+    margin-bottom: 20px; /* Espace entre chaque fonctionnalité */
+}
+
+.presentation .feature-box i {
+    font-size: 40px; /* Taille des icônes */
+    margin-right: 10px; /* Espace à droite de l'icône */
+    color: var(--secondary-color); /* Utilisation de la couleur cyan */
+}
+
+.presentation .feature-text h4 {
+    font-size: 1.5em; /* Taille de la police du titre */
+    margin: 0 0 5px 0; /* Espace en dessous du titre */
+    color: var(--primary-color); /* Couleur primaire */
+}
+
+.presentation .feature-text p {
+    font-size: 1em; /* Taille de la police du texte */
+    color: var(--text-color); /* Couleur du texte */
+    margin: 0; /* Supprime les marges */
+    line-height: 1.4; /* Hauteur de ligne */
+}
+
+
+/* Section Nos Résultats */
+#nos-resultats {
+    background-color: var(--light-color); /* Couleur de fond */
+    padding: 40px 0; /* Padding vertical */
+}
+
+#nos-resultats .container {
+    max-width: 1200px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 0 40px; /* Padding pour les marges internes */
+}
+
+#nos-resultats .introduction {
+    text-align: center; /* Centre le texte */
+    margin-bottom: 20px; /* Espace en dessous de l'introduction */
+}
+
+#nos-resultats .introduction h2 {
+    font-size: 2.5em; /* Taille de la police du titre */
+    color: var(--primary-color); /* Couleur primaire */
+}
+
+#nos-resultats .introduction .introduction-text {
+    font-size: 1.2em; /* Taille de la police */
+    color: var(--text-color); /* Couleur du texte */
+    margin-bottom: 40px; /* Espace en dessous du texte */
+}
+
+#nos-resultats .solution-content {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: center; /* Centre les éléments */
+    flex-wrap: wrap; /* Permet le retour à la ligne des éléments */
+    gap: 20px; /* Espace entre les éléments */
+}
+
+#nos-resultats .performance-kpis {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: center; /* Centre les KPI */
+    flex-wrap: wrap; /* Permet le retour à la ligne des KPI */
+    gap: 20px; /* Espace entre les KPI */
+}
+
+/* Ajustement des styles pour les KPI de la section Nos Résultats */
+#nos-resultats .kpi {
+    background-color: #fff; /* Couleur de fond des KPI */
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+    padding: 15px; /* Padding interne */
+    text-align: center; /* Centre le texte */
+    min-width: 200px; /* Largeur minimale des KPI */
+    max-width: 250px; /* Largeur maximale des KPI */
+    height: 120px; /* Hauteur des KPI */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition pour l'effet de survol */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centre horizontalement les éléments */
+    border: 2px solid transparent; /* Bordure initialement transparente */
+}
+
+#nos-resultats .kpi:hover {
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre au survol */
+    border: 2px solid; /* Affiche la bordure */
+    border-image-slice: 1; /* Définit la bordure en image */
+    border-image-source: linear-gradient(135deg, var(--secondary-color), var(--accent-color)); /* Dégradé du cyan au violet */
+}
+
+#nos-resultats .kpi h4 {
+    font-size: 1.5em; /* Taille de la police du titre */
+    margin-bottom: 0; /* Supprime l'espace en dessous du titre */
+    color: var(--primary-color); /* Couleur primaire */
+}
+
+#nos-resultats .kpi p {
+    font-size: 1.5em; /* Taille de la police de la valeur */
+    color: var(--secondary-color); /* Couleur de l'accent */
+    margin-top: 0.5em; /* Ajoute un espace au-dessus de la valeur */
+}
+
+#nos-resultats .graphs {
+    flex: 1; /* Prend tout l'espace disponible */
+    min-width: 300px; /* Largeur minimale des graphiques */
+}
+
+#nos-resultats .graph-title {
+    font-size: 1.5em; /* Taille de la police du titre des graphiques */
+    margin-bottom: 10px; /* Espace en dessous du titre */
+    color: var(--primary-color); /* Couleur primaire */
+    text-align: center; /* Centre le texte */
+}
+
+#nos-resultats .cta {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#nos-resultats .cta p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#nos-resultats .cta-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#nos-resultats .cta-form input[type="email"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    width: 250px;
+    max-width: 100%;
+}
+
+#nos-resultats .cta-form .cta-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: var(--primary-color);
+    border: 2px solid var(--warm-neutral); /* Bordure or et beige */
+    border-radius: 30px; /* Bords arrondis */
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s, box-shadow 0.3s; /* Transition pour les animations */
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%); /* Dégradé de fond */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+}
+
+#nos-resultats .cta-form .cta-button:hover {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%); /* Dégradé de fond au survol */
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre au survol */
+    border-color: var(--warm-neutral); /* Couleur de bordure au survol */
+}
+
+
+/* Styles pour la section plus d'infos */
+#plus-dinfos {
+    background-color: #FFFFFF; /* Couleur de fond */
+}
+
+#plus-dinfos .cta {
+    text-align: center; /* Centre le texte */
+    margin-top: 4em; /* Espace au-dessus de l'appel à l'action */
+}
+
+.newsletter-signup {
+    display: inline-flex; /* Utilise Flexbox pour l'alignement interne */
+    align-items: center; /* Centre verticalement les éléments */
+    justify-content: center; /* Centre horizontalement les éléments */
+    gap: 10px; /* Espace entre les éléments */
+}
+
+.newsletter-signup .cta-input {
+    padding: 10px; /* Padding interne */
+    border-radius: 25px; /* Bords arrondis */
+    border: 1px solid #ddd; /* Bordure */
+    width: auto;
+    max-width: 300px; /* Largeur maximale */
+    box-sizing: border-box; /* Inclut les bordures dans les dimensions */
+}
+
+.newsletter-signup .cta-button {
+    padding: 1em 2em; /* Padding interne */
+    border-radius: 30px; /* Bords arrondis */
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%); /* Dégradé de fond */
+    color: white; /* Couleur de texte */
+    border: 2px solid var(--warm-neutral); /* Bordure */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transitions pour les animations */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+    white-space: nowrap; /* Empêche le retour à la ligne */
+}
+
+.newsletter-signup .cta-button:hover {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%); /* Dégradé de fond au survol */
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre au survol */
+}
+
+/* Section Témoignages */
+.testimonials {
+    background-color: var(--light-color); /* Couleur de fond */
+    text-align: center; /* Centre le texte */
+}
+
+.testimonials .container {
+    text-align: center; /* Centre le texte */
+}
+
+.testimonials h2 {
+    margin-top: 1.5em; /* Espace au-dessus du titre */
+    margin-bottom: 1.5em; /* Espace en dessous du titre */
+    color: var(--primary-color); /* Couleur primaire */
+    text-align: center; /* Centre le titre */
+}
+
+.testimonial-row {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: space-around; /* Espace entre les témoignages */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+}
+
+.testimonial {
+    background-color: #FFFFFF; /* Couleur de fond des témoignages */
+    padding: 2em; /* Padding interne */
+    margin: 1em; /* Marges des témoignages */
+    width: 25%; /* Largeur des témoignages */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre des témoignages */
+    border-radius: 10px; /* Bords arrondis */
+    text-align: center; /* Centre le texte */
+    transition: border 0.3s ease-in-out, transform 0.3s, box-shadow 0.3s; /* Transitions pour les animations */
+    border: 2px solid transparent; /* Bordure transparente */
+}
+
+.testimonial:hover {
+    transform: translateY(-5px); /* Effet de déplacement au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre au survol */
+    border: 2px solid; /* Affiche la bordure */
+    border-image-slice: 1; /* Définit la bordure en image */
+    border-image-source: linear-gradient(135deg, var(--secondary-color), var(--accent-color)); /* Dégradé du cyan au violet */
+}
+
+.testimonial img {
+    height: 80px; /* Hauteur de l'image */
+    width: 80px; /* Largeur de l'image */
+    border-radius: 50%; /* Bords arrondis */
+    margin-bottom: 1em; /* Espace en dessous de l'image */
+}
+
+.testimonial h3 {
+    font-size: 1.3em; /* Taille de police */
+    margin-bottom: 0.5em; /* Espace en dessous du titre */
+    color: var(--primary-color); /* Couleur primaire */
+    text-align: center; /* Centre le titre */
+}
+
+.testimonial p {
+    font-size: 1em; /* Taille de police */
+    line-height: 1.6; /* Hauteur de ligne */
+}
+
+.cta {
+    text-align: center; /* Centre le texte */
+    margin-top: 2em; /* Espace au-dessus de l'appel à l'action */
+}
+
+.cta p {
+    font-size: 1.2em; /* Taille de police */
+    color: var(--dark-color); /* Couleur de texte */
+    margin-bottom: 1em; /* Espace en dessous du paragraphe */
+}
+
+@media screen and (max-width: 768px) {
+    #testimonials .testimonial-row{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+    #testimonials .testimonial {
+        width: 80%;
+     }
+
+     .testimonial {
+        margin: 0;
+     }
+}
+
+
+/* Section des tarifs */
+#pricing {
+    background-color: #FFFFFF; /* Couleur de fond */
+}
+
+#pricing .container {
+    text-align: center; /* Centre le texte */
+}
+
+#pricing h2 {
+    font-size: 2.8em; /* Taille de police */
+    font-weight: bold;
+    color: var(--primary-color); /* Couleur primaire */
+    text-align: center; /* Centre le titre */
+    margin-bottom: 20px; /* Espace en dessous du titre */
+}
+
+.pricing-table {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: space-around; /* Espace entre les options */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+    margin-top: 40px; /* Espace au-dessus de la table */
+}
+
+.pricing-option {
+    background-color: #fff; /* Couleur de fond des options */
+    border-radius: 10px; /* Bords arrondis */
+    border: 2px solid transparent; /* Bordure initialement transparente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre des options */
+    padding: 20px; /* Padding interne */
+    width: 35%; /* Largeur des options */
+    margin-bottom: 20px; /* Espace en dessous des options */
+    transition: border 0.3s ease-in-out, transform 0.3s, box-shadow 0.3s; /* Transitions pour les animations */
+}
+
+.pricing-option:hover {
+    transform: translateY(-5px); /* Effet de déplacement au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre au survol */
+    border: 2px solid; /* Affiche la bordure */
+    border-image-slice: 1; /* Définit la bordure en image */
+    border-image-source: linear-gradient(135deg, var(--secondary-color), var(--accent-color)); /* Dégradé du cyan au violet */
+}
+
+.pricing-option h4 {
+    font-size: 1.5em; /* Taille de police */
+    font-weight: bold;
+    color: var(--primary-color); /* Couleur primaire */
+    margin-bottom: 10px; /* Espace en dessous du titre */
+}
+
+.pricing-option .price {
+    font-size: 1em; /* Taille de police */
+    color: var(--accent-color); /* Couleur violette définie en accent color */
+    margin-bottom: 20px; /* Espace en dessous du prix */
+}
+
+.pricing-option ul {
+    list-style: none; /* Supprime les puces */
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px; /* Espace en dessous de la liste */
+    text-align: left; /* Texte aligné à gauche */
+}
+
+.pricing-option ul li {
+    margin-bottom: 5px; /* Espace en dessous de chaque élément */
+    font-size: 1em; /* Taille de police */
+    color: var(--text-color); /* Couleur de texte */
+}
+
+.pricing-option ul li h5 {
+    margin: 0;
+    padding: 0;
+}
+
+.pricing-option .cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color); /* Couleur de fond */
+    color: #fff; /* Couleur de texte */
+    padding: 10px 20px; /* Padding interne */
+    font-size: 16px; /* Taille de police */
+    border-radius: 25px; /* Bords arrondis */
+    text-decoration: none; /* Supprime la décoration des liens */
+    transition: background-color 0.3s, transform 0.3s; /* Transitions pour les animations */
+}
+
+.pricing-option .cta-button:hover {
+    background-color: var(--accent-color); /* Couleur de fond au survol */
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+}
+
+@media screen and (max-width: 768px) {
+    #pricing .pricing-table{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #pricing .pricing-option {
+        width: 80%;
+     }
+}
+/* Styles pour la section FAQ Tarifs */
+.faq {
+    background-color: var(--light-color); /* Couleur de fond */
+    padding: 40px 0; /* Padding vertical */
+}
+
+.faq .container {
+    max-width: 1200px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 0 40px; /* Padding pour les marges internes */
+}
+
+.faq h2 {
+    text-align: center; /* Centre le texte */
+    margin-bottom: 40px; /* Espace en dessous du titre */
+    color: var(--primary-color); /* Couleur primaire */
+}
+
+.faq-item {
+    background-color: #FFFFFF; /* Couleur de fond des items */
+    border-radius: 10px; /* Bords arrondis */
+    border: 2px solid transparent; /* Bordure initialement transparente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+    padding: 20px; /* Padding interne */
+    margin-bottom: 20px; /* Espace en dessous des items */
+    transition: border 0.3s ease-in-out, transform 0.3s, box-shadow 0.3s; /* Transitions pour les animations */
+    cursor: pointer; /* Curseur en forme de pointeur */
+}
+
+.faq-item h3 {
+    font-size: 1.5em; /* Taille de police */
+    color: var(--primary-color); /* Couleur primaire */
+    display: flex; /* Affiche en flexbox pour aligner l'icône */
+    justify-content: space-between; /* Espace entre le texte et l'icône */
+    align-items: center; /* Aligne les éléments au centre verticalement */
+}
+
+.faq-item .toggle-icon {
+    font-size: 1.5em; /* Taille de police de l'icône */
+    transition: transform 0.3s ease; /* Transition pour la rotation */
+}
+
+.faq-item.active .toggle-icon {
+    transform: rotate(45deg); /* Rotation de l'icône en croix */
+}
+
+.faq-item p {
+    display: none; /* Cache le texte initialement */
+    font-size: 1em; /* Taille de police */
+    color: var(--text-color); /* Couleur de texte */
+    margin-top: 10px; /* Espace au-dessus du texte */
+}
+
+.faq-item.active p {
+    display: block; /* Affiche le texte lorsqu'il est actif */
+}
+
+
+/* Section Contact */
+.contact {
+    background-color: var(--light-color); /* Couleur de fond */
+    padding: 20px 0; /* Réduit le padding vertical */
+}
+
+.contact .container {
+    max-width: 800px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 0 20px; /* Padding pour les marges internes */
+    text-align: center; /* Centre le texte */
+}
+
+.contact h2 {
+    font-family: 'Roboto', sans-serif; /* Assurez-vous d'utiliser la police utilisée dans votre site */
+    font-size: 2em; /* Taille de police */
+    font-weight: bold;
+    color: var(--primary-color); /* Couleur primaire */
+    margin-bottom: 20px; /* Espace en dessous du titre */
+}
+
+.contact p {
+    font-family: 'Roboto', sans-serif; /* Assurez-vous d'utiliser la police utilisée dans votre site */
+    font-size: 1em; /* Taille de police */
+    color: var(--text-color); /* Couleur du texte */
+    margin-bottom: 20px; /* Espace en dessous du paragraphe */
+}
+
+.contact-form {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    gap: 10px; /* Espace entre les éléments */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%; /* Prend toute la largeur disponible */
+    padding: 10px 0; /* Padding interne */
+    border: 1px solid var(--text-color); /* Bordure */
+    border-radius: 5px; /* Bords arrondis */
+    font-size: 1em; /* Taille de police */
+}
+
+.contact-form button {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%); /* Dégradé de fond */
+    color: white; /* Couleur de texte */
+    padding: 10px 20px; /* Padding interne */
+    border-radius: 5px; /* Bords arrondis */
+    border: none; /* Pas de bordure */
+    font-size: 1em; /* Taille de police */
+    cursor: pointer; /* Curseur de pointeur */
+    transition: background-color 0.3s, transform 0.3s; /* Transitions pour les animations */
+}
+
+.contact-form button:hover {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%); /* Dégradé de fond au survol */
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+}
+
+@media screen and (max-width: 768px) {
+
+.contact-form input,.contact-form textarea {
+    width: auto;
+}
+}
+
+
+/* Styles pour le pied de page */
+footer {
+    background-color: var(--primary-color); /* Couleur de fond */
+    color: #ffffff; /* Couleur de texte */
+    text-align: center; /* Centre le texte */
+    padding: 2em 0; /* Padding vertical */
+    font-size: 0.9em; /* Taille de police */
+    position: relative; /* Position relative */
+    width: 100%;
+}
+
+footer .logo-footer {
+    height: 100px; /* Hauteur du logo */
+    margin-bottom: 1em; /* Espace en dessous du logo */
+}
+
+footer .container {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: center; /* Centre horizontalement les éléments */
+}
+
+footer nav ul {
+    list-style-type: none; /* Supprime les puces de la liste */
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: center; /* Centre horizontalement les éléments */
+    padding: 0;
+    margin: 0 0 1em 0; /* Espace en dessous de la liste */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+}
+
+footer nav ul li {
+    margin: 0 1em; /* Marges des éléments de la liste */
+}
+
+footer nav ul li a {
+    font-size: 0.9em; /* Taille de police */
+    color: #ffffff; /* Couleur de texte */
+}
+
+footer nav ul li a:hover {
+    color: var(--secondary-color); /* Couleur de texte au survol */
+}
+
+footer .footer-text {
+    max-width: 800px; /* Largeur maximale */
+    text-align: center; /* Centre le texte */
+    margin-top: 1em; /* Espace au-dessus du texte */
+    line-height: 1.4em; /* Hauteur de ligne */
+    color: #ffffff; /* Couleur de texte */
+}
+
+footer .footer-text p {
+    margin: 0.5em 0; /* Espaces autour du paragraphe */
+    color: #ffffff; /* Couleur de texte */
+}
+
+/* Classes d'animation */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease-out; /* Transition pour l'animation */
+}
+
+.translate-left {
+    opacity: 0;
+    transform: translateX(-20px); /* Déplacement horizontal */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Transition pour l'animation */
+}
+
+.translate-right {
+    opacity: 0;
+    transform: translateX(20px); /* Déplacement horizontal */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Transition pour l'animation */
+}
+
+/* Classe pour afficher les éléments une fois visibles */
+.show {
+    opacity: 1;
+    transform: translateX(0); /* Remet à zéro le déplacement */
+}
+/* Animation d'apparition en montée */
+.slide-up {
+    opacity: 0;
+    transform: translateY(20px); /* Déplacement vertical */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Transition pour l'animation */
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0); /* Remet à zéro le déplacement */
+}
+/* Animation fade-in */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.timeline-item {
+    opacity: 0; /* Initialement caché */
+    transform: translateY(20px); /* Position de départ */
+    transition: opacity 0.5s, transform 0.5s; /* Transition */
+}
+
+.timeline-item.fade-in {
+    animation: fadeInUp 0.5s forwards; /* Animation */
+}
+
+.timeline-item.appear {
+    opacity: 1; /* Rendre visible */
+    transform: translateY(0); /* Position finale */
+}
+
+/* newletter */
+#sib-container input:-ms-input-placeholder {
+    text-align: left;
+    color: #c0ccda;
+  }
+
+  #sib-container input::placeholder {
+    text-align: left;
+    color: #c0ccda;
+  }
+
+  #sib-container textarea::placeholder {
+    text-align: left;
+    color: #c0ccda;
+  }
+
+  #sib-container a {
+    text-decoration: underline;
+    color: #2BB2FC;
+  }
